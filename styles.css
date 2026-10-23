@@ -837,6 +837,11 @@ body.paged #paper:not(.script) #tp-author { font-size: calc(14px * var(--page-zo
   transition: opacity 0.15s;
 }
 .chapter-head:hover .ch-title:empty::before { opacity: 1; }
+/* a chapter with no title yet takes no room for the dash or the title, so
+   "Chapter X" stays centered; the prompt hangs off its right edge on hover */
+.chapter-head:not(.has-title):not(.no-number) .ch-sep { display: inline-block; width: 0; margin: 0; overflow: hidden; vertical-align: bottom; }
+.chapter-head:not(.has-title):not(.no-number) .ch-title { width: 0; min-width: 0; white-space: nowrap; vertical-align: bottom; }
+.chapter-head:not(.has-title):not(.no-number) .ch-title:empty::before { margin-left: 14px; }
 /* an unnumbered chapter goes by its title alone: no number, no dash, and
    the "add a title" prompt stays in view until it has one */
 .chapter-head.no-number .ch-num, .chapter-head.no-number .ch-sep { display: none; }
